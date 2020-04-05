@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-view/>
     <Header/>
     <div class="wrap">
       <Menu/>
