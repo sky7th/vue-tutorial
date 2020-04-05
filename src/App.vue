@@ -1,32 +1,28 @@
 <template>
-  <div>
-    <router-view/>
-    <Header/>
-    <div class="wrap">
-      <Menu/>
-      <Content/>
-    </div>
+  <div id="app">
+    <section class="todoapp">
+      <Header/>
+      <Todo/>
+      <Footer/>
+    </section>
   </div>
 </template>
 
 <script>
-import Header from './components/Header';
-import Menu from './components/Menu';
-import Content from './components/Content';
+import "./assets/css/main.css";
 
+import Header from "./components/Header";
+import Todo from "./components/Todo";
+import Footer from "./components/Footer";
 
 export default {
-  name: 'App',
   components: {
     Header,
-    Menu,
-    Content
+    Todo,
+    Footer
   }
 };
 </script>
 
-<style scoped>
-.wrap {
-  display: flex;
-}
+<style>
 </style>
