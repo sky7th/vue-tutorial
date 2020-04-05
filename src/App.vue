@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <section class="todoapp">
-      <Header/>
-      <Todo :todos="todos"/>
+      <Header @insertTodo="insertTodo" />
+      <Todo :todos="todos" />
       <Footer/>
     </section>
   </div>
@@ -36,6 +36,19 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    insertTodo(text) {
+      this.todos = [
+        ...this.todos, // 기존의 배열에 새로운 todo 를 추가합니다.
+        {
+          // id, isDone 의 경우 같은 포맷을 유지하기 때문에 새로 받지 않습니다. 
+          id: new Date().getTime(), 
+          text, // 유동적인 text 값만 받습니다.
+          isDone: false
+        }
+      ];
+    }
   }
 };
 </script>

@@ -1,12 +1,35 @@
 <template>
   <header class="header">
     <h1>오늘의 할 일</h1>
-    <input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?">
+    <input 
+      class="new-todo" 
+      autofocus 
+      autocomplete="off" 
+      placeholder="What needs to be done?"
+      v-model="text"
+      @keypress="handleTodo"
+    >
   </header>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      text: ""
+    };
+  },
+  methods: {
+    handleTodo({ keyCode }) {
+      const { text } = this;
+
+      if (keyCode === 13 && text !== "") {
+        this.$emit("insertTodo", text);
+        this.text = "";
+      }
+    }
+  }
+};
 </script>
 
 <style>
